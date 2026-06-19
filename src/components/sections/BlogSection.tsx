@@ -10,7 +10,7 @@ const POSTS: Post[] = [
     slug: 'blog/totoro-monomyth',
     date: 'Feb 2024',
     title: 'My Neighbor Totoro and the Monomyth',
-    excerpt: 'If one day, no one weeps for you, believe that the rain is the clouds shedding tears for you.',
+    excerpt: 'Only Children Can See Totoro, Only Adults Can Become Totoro.',
     tags: ['film', 'review'],
     color: '#4a9e6b',
     thumb: '/blogs/totoro/cover.jpg',
