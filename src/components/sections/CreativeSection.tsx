@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DetailDrawer from '@/components/ui/DetailDrawer';
+import BlogReader from '@/components/ui/BlogReader';
 
 type Work = { cat: string; slug: string; title: string; desc: string; year: string; color: string; thumb?: string };
 
@@ -17,7 +18,13 @@ const FILTERS = ['all', 'vocaloid', 'photography', '3d'] as const;
 export default function CreativeSection() {
   const [filter, setFilter]     = useState<string>('all');
   const [drawerSlug, setDrawer] = useState<string | null>(null);
+  const [photoWork, setPhotoWork] = useState<Work | null>(null);
   const shown = filter === 'all' ? WORKS : WORKS.filter(w => w.cat === filter);
+
+  const photoPost = photoWork ? {
+    slug: photoWork.slug, title: photoWork.title, date: photoWork.year,
+    tags: [photoWork.cat], thumb: photoWork.thumb, color: photoWork.color, lang: 'en' as const,
+  } : null;
 
   return (
     <>
@@ -48,7 +55,7 @@ export default function CreativeSection() {
                   initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }} transition={{ delay: i * 0.05 }}
                   whileHover={{ y: -4 }}
-                  onClick={() => setDrawer(w.slug)}
+                  onClick={() => w.cat === 'photography' ? setPhotoWork(w) : setDrawer(w.slug)}
                   className="group bg-white rounded-card overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-100 transition-colors">
 
                   {/* Thumbnail */}
@@ -89,6 +96,7 @@ export default function CreativeSection() {
       </section>
 
       <DetailDrawer slug={drawerSlug} onClose={() => setDrawer(null)} />
+      <BlogReader post={photoPost} onClose={() => setPhotoWork(null)} />
     </>
   );
 }
