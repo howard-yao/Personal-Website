@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BlogReader from '@/components/ui/BlogReader';
 
-type Category = 'all' | 'movies' | 'vn';
-type Post = { slug: string; date: string; title: string; excerpt: string; tags: string[]; thumb?: string; color: string; lang: 'en' | 'zh'; category: 'movies' | 'vn' };
+type Category = 'all' | 'movies' | 'vn' | 'cg';
+type Post = { slug: string; date: string; title: string; excerpt: string; tags: string[]; thumb?: string; color: string; lang: 'en' | 'zh'; category: 'movies' | 'vn' | 'cg'; contentType?: 'mdx' | 'html' };
 
 const POSTS: Post[] = [
   {
@@ -51,12 +51,25 @@ const POSTS: Post[] = [
     lang: 'en',
     category: 'vn',
   },
+  {
+    slug: 'blogs/computer-graphics/how_to_draw_a_triangle',
+    date: 'Jul 2026',
+    title: 'How to Draw a Triangle?',
+    excerpt: 'Computer graphics is the moment when we finally hand this child a box of crayons and teach it how to see the world — starting from scratch with OpenGL.',
+    tags: ['CG', 'OpenGL'],
+    color: '#2c5282',
+    thumb: '/blogs/computer-graphics/how_to_draw_a_triangle/image.png',
+    lang: 'en',
+    category: 'cg',
+    contentType: 'html',
+  },
 ];
 
 const FILTERS: { key: Category; label: string; labelZh: string }[] = [
-  { key: 'all',    label: 'All',           labelZh: '全部' },
-  { key: 'movies', label: 'Movies',        labelZh: '电影' },
-  { key: 'vn',     label: 'Visual Novels', labelZh: '视觉小说' },
+  { key: 'all',    label: 'All',               labelZh: '全部' },
+  { key: 'movies', label: 'Movies',            labelZh: '电影' },
+  { key: 'vn',     label: 'Visual Novels',     labelZh: '视觉小说' },
+  { key: 'cg',     label: 'Computer Graphics', labelZh: 'CG 笔记' },
 ];
 
 const COLLAPSED_COUNT = 2;
@@ -68,7 +81,7 @@ export default function BlogSection() {
   const [expanded, setExpanded]     = useState(false);
 
   const filtered = POSTS.filter(p =>
-    p.lang === lang && (category === 'all' || p.category === category)
+    (p.lang === lang || p.category === 'cg') && (category === 'all' || p.category === category)
   );
 
   const showExpander = category === 'all' && filtered.length > COLLAPSED_COUNT;
@@ -121,7 +134,11 @@ export default function BlogSection() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ delay: i * 0.06 }}
                   whileHover={{ y: -3 }}
-                  onClick={() => setActivePost(post)}
+                  onClick={() =>
+                    post.contentType === 'html'
+                      ? window.open(`/${post.slug}/index.html`, '_blank')
+                      : setActivePost(post)
+                  }
                   className="group bg-white rounded-card overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-100 transition-all">
 
                   {/* Cover image */}

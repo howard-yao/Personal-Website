@@ -62,7 +62,7 @@ export default function WorksSection() {
                   className="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white rounded-card overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-100 transition-colors">
 
                   {/* Preview / figure panel */}
-                  <div className={`relative w-full sm:w-48 h-40 sm:h-auto flex-shrink-0 overflow-hidden ${w.diagram ? 'bg-[#fafaf8]' : 'bg-[#0e0e10]'}`}>
+                  <div className={`relative w-full sm:w-48 h-40 sm:h-auto flex-shrink-0 overflow-hidden ${w.diagram ? 'bg-cream' : 'bg-[#0e0e10]'}`}>
                     {w.thumb ? (
                       <img
                         src={w.thumb}

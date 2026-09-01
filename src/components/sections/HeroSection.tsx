@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const NAME_COLORS = ['#e84040','#3a7bd5','#222','#2daa55','#f0a020','#222','#3a7bd5','#222','#e84040'];
+const NAME_COLORS = ['#e84040','#3a7bd5','rgb(var(--ink))','#2daa55','#f0a020','rgb(var(--ink))','#3a7bd5','rgb(var(--ink))','#e84040'];
 const HOWARD = ['H','o','w','a','r','d'];
 const YAO    = ['Y','a','o'];
 

@@ -92,10 +92,10 @@ export default function DetailDrawer({ slug, onClose }: { slug: string | null; o
             key="drawer"
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-            className="fixed right-0 top-0 h-full w-full max-w-2xl bg-[#f5f0e8] z-50 flex flex-col shadow-2xl"
+            className="fixed right-0 top-0 h-full w-full max-w-2xl bg-cream z-50 flex flex-col shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-8 py-4 border-b border-black/5 bg-[#f5f0e8]/95 backdrop-blur-sm flex-shrink-0">
+            <div className="flex items-center justify-between px-8 py-4 border-b border-black/5 bg-cream/95 backdrop-blur-sm flex-shrink-0">
               <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                 {loading ? '…' : (data?.frontmatter?.cat ?? '')}
               </span>

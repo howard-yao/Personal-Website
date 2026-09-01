@@ -8,8 +8,9 @@ module.exports = {
         mono: ['"DM Mono"', 'monospace'],
       },
       colors: {
-        cream: '#f5f0e8',
-        ink:   '#222222',
+        // CSS-variable-backed so dark mode works via [data-dark="true"]
+        cream: 'rgb(var(--cream) / <alpha-value>)',
+        ink:   'rgb(var(--ink)   / <alpha-value>)',
         red:   '#e84040',
         blue:  '#3a7bd5',
         green: '#2daa55',

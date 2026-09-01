@@ -61,9 +61,9 @@ const components = {
 };
 
 export default function BlogReader({ post, onClose }: Props) {
-  const [data, setData]       = useState<MDXData | null>(null);
+  const [data, setData]         = useState<MDXData | null>(null);
   const [imgWidth, setImgWidth] = useState(55);
-  const containerRef          = useRef<HTMLDivElement>(null);
+  const containerRef            = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!post) { setData(null); return; }
@@ -103,11 +103,11 @@ export default function BlogReader({ post, onClose }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
-          className="fixed inset-0 z-50 bg-[#fafaf8] overflow-y-auto overflow-x-clip"
+          className="fixed inset-0 z-50 bg-cream overflow-y-auto overflow-x-clip"
           style={{ '--img-width': '55vw' } as React.CSSProperties}
         >
           {/* Sticky nav bar */}
-          <div className="sticky top-0 z-10 bg-[#fafaf8]/90 backdrop-blur-sm border-b border-gray-100">
+          <div className="sticky top-0 z-10 bg-cream/90 backdrop-blur-sm border-b border-gray-100">
             <div className="max-w-[740px] mx-auto px-6 py-3.5 flex items-center justify-between">
               <button onClick={onClose}
                 className="flex items-center gap-1.5 text-sm font-maru font-bold text-gray-400 hover:text-ink transition-colors">
