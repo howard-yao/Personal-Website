@@ -10,7 +10,6 @@ type BlogPost = {
   tags: string[];
   thumb?: string;
   color: string;
-  lang: 'en' | 'zh';
 };
 
 type Props = { post: BlogPost | null; onClose: () => void };
@@ -91,7 +90,7 @@ export default function BlogReader({ post, onClose }: Props) {
     containerRef.current?.style.setProperty('--img-width', `${val}vw`);
   };
 
-  const backLabel = post?.lang === 'zh' ? '返回' : 'Back';
+  const backLabel = 'Back';
 
   return (
     <AnimatePresence>
