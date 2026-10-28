@@ -18,38 +18,6 @@ type Post = {
 
 const POSTS: Post[] = [
   {
-    slug: "blog/totoro-monomyth",
-    date: "Jun 2026",
-    title: "My Neighbor Totoro and the Monomyth",
-    excerpt: "Only children can see Totoro. Only adults can become Totoro.",
-    tags: ["film"],
-    color: "#4a9e6b",
-    thumb: "/blogs/totoro/cover.jpg",
-    category: "movies",
-  },
-  {
-    slug: "blog/song-of-saya",
-    date: "Jun 2026",
-    title: "Song of Saya",
-    excerpt:
-      "Pure oxygen must be diluted with five parts nitrogen before humans can breathe it—so too must some truth be diluted with lies.",
-    tags: ["visual novel"],
-    color: "#8b1a1a",
-    thumb: "/blogs/song-of-saya/cover.jpg",
-    category: "vn",
-  },
-  {
-    slug: "blog/sea-bed",
-    date: "Jun 2026",
-    title: "Sea Bed",
-    excerpt:
-      "A critically acclaimed yuri-themed mystery visual novel that explores themes of love, memory, and the complexities of human relationships through the perspectives of three main characters.",
-    tags: ["visual novel"],
-    color: "#1e5f7a",
-    thumb: "/blogs/sea-bed/cover.jpg",
-    category: "vn",
-  },
-  {
     slug: "blogs/computer-graphics/how_to_draw_a_triangle",
     date: "Jul 2026",
     title: "How to Draw a Triangle?",
@@ -85,13 +53,45 @@ const POSTS: Post[] = [
     category: "cg",
     contentType: "html",
   },
+  {
+    slug: "blog/totoro-monomyth",
+    date: "Jun 2026",
+    title: "My Neighbor Totoro and the Monomyth",
+    excerpt: "Only children can see Totoro. Only adults can become Totoro.",
+    tags: ["film"],
+    color: "#4a9e6b",
+    thumb: "/blogs/totoro/cover.jpg",
+    category: "movies",
+  },
+  {
+    slug: "blog/song-of-saya",
+    date: "Jun 2026",
+    title: "Song of Saya",
+    excerpt:
+      "Pure oxygen must be diluted with five parts nitrogen before humans can breathe it—so too must some truth be diluted with lies.",
+    tags: ["visual novel"],
+    color: "#8b1a1a",
+    thumb: "/blogs/song-of-saya/cover.jpg",
+    category: "vn",
+  },
+  {
+    slug: "blog/sea-bed",
+    date: "Jun 2026",
+    title: "Sea Bed",
+    excerpt:
+      "A critically acclaimed yuri-themed mystery visual novel that explores themes of love, memory, and the complexities of human relationships through the perspectives of three main characters.",
+    tags: ["visual novel"],
+    color: "#1e5f7a",
+    thumb: "/blogs/sea-bed/cover.jpg",
+    category: "vn",
+  },
 ];
 
 const FILTERS: { key: Category; label: string }[] = [
   { key: "all", label: "All" },
+  { key: "cg", label: "Computer Graphics" },
   { key: "movies", label: "Movies" },
   { key: "vn", label: "Visual Novels" },
-  { key: "cg", label: "Computer Graphics" },
 ];
 
 const COLLAPSED_COUNT = 2;
